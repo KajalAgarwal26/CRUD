@@ -18,7 +18,7 @@ pipeline {
 	stage ('Deploy') {
 		steps {
 			sh '''
-             cp -r $WORKSPACE/build/es6-bundled /opt/apache-tomcat-9.0.30/webapps
+             cp -r $WORKSPACE/build/es5-bundled /opt/apache-tomcat-9.0.30/webapps
              curl -u admin:admin http://13.235.243.117:8888/manager/reload?path=/build 
              '''
 		}
