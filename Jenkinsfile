@@ -15,6 +15,14 @@ pipeline {
 		
 		}
 	}
+	stage ('Deploy') {
+		steps {
+			sh '''
+             cp -r $WORKSPACE/dist/matrimony /opt/apache-tomcat-9.0.30/webapps
+             curl -u admin:admin http://172.31.43.239:8888/manager/reload?path=/build 
+             '''
+		}
+	}
 	
 }
 }
